@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    
+ <link
+    name="c3">
+    <inertial>
+      <origin
+        xyz="0.030616 -0.0027342 -0.023249"
+        rpy="0 0 0" />
+      <mass
+        value="0.069241" />
+      <inertia
+        ixx="1.4942E-05"
+        ixy="4.659E-10"
+        ixz="-8.5056E-08"
+        iyy="1.4977E-05"
+        iyz="-8.4762E-08"
+        izz="1.1522E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://velatrix_description/meshes/c3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://velatrix_description/meshes/c3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="c3_jt"
+    type="revolute">
+    <origin
+      xyz="0.041807 -0.05834 0.04925"
+      rpy="0 -0.0002253 -0.92041" />
+    <parent
+      link="base_link" />
+    <child
+      link="c3" />
+    <axis
+      xyz="-0.0002253 0 -1" />
+    <limit
+      lower="0.785"
+      upper="2.356"
+      effort="2.4"
+      velocity="1" />
+  </joint>
+  <link
+    name="f3">
+    <inertial>
+      <origin
+        xyz="0.032684 0.005636 -0.021687"
+        rpy="0 0 0" />
+      <mass
+        value="0.01661" />
+      <inertia
+        ixx="1.8911E-06"
+        ixy="-2.7619E-06"
+        ixz="-5.2455E-08"
+        iyy="9.7962E-06"
+        iyz="-1.6511E-08"
+        izz="1.1175E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://velatrix_description/meshes/f3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://velatrix_description/meshes/f3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="f3_jt"
+    type="revolute">
+    <origin
+      xyz="0.054484 -0.027961 -0.013852"
+      rpy="1.5708 0 0" />
+    <parent
+      link="c3" />
+    <child
+      link="f3" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0.785"
+      upper="2.356"
+      effort="2.4"
+      velocity="1" />
+  </joint>
+  <link
+    name="t3">
+    <inertial>
+      <origin
+        xyz="0.012551 0.031325 -0.026295"
+        rpy="0 0 0" />
+      <mass
+        value="0.12541" />
+      <inertia
+        ixx="0.00018525"
+        ixy="-1.4642E-05"
+        ixz="-4.9664E-10"
+        iyy="2.7853E-05"
+        iyz="-8.4245E-08"
+        izz="0.000196" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://velatrix_description/meshes/t3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://velatrix_description/meshes/t3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="t3_jt"
+    type="revolute">
+    <origin
+      xyz="0.06677 0.021017 -0.0457"
+      rpy="3.1416 0 0" />
+    <parent
+      link="f3" />
+    <child
+      link="t3" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0.785"
+      upper="2.356"
+      effort="2.4"
+      velocity="1" />
+  </joint>
+
+</robot>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="velatrix">
+
+    <xacro:include filename="base/base.xacro"/>
+    <!-- <xacro:include filename="leg/leg_1.xacro"/>
+    <xacro:include filename="leg/leg_2.xacro"/>
+    <xacro:include filename="leg/leg_3.xacro"/>
+    <xacro:include filename="leg/leg_4.xacro"/>
+    <xacro:include filename="leg/leg_5.xacro"/>
+    <xacro:include filename="leg/leg_6.xacro"/>
+ -->
+</robot>

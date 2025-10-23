@@ -1,0 +1,353 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    
+  <link
+    name="prop2">
+    <inertial>
+      <origin
+        xyz="0.00067846 -0.00067196 0.007248"
+        rpy="0 0 0" />
+      <mass
+        value="0.0032755" />
+      <inertia
+        ixx="1.0525E-06"
+        ixy="3.2951E-12"
+        ixz="1.3765E-11"
+        iyy="1.0524E-06"
+        iyz="-4.1733E-12"
+        izz="2.081E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://velatrix_description/meshes/prop2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://velatrix_description/meshes/prop2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop2_jt"
+    type="continuous">
+    <origin
+      xyz="0.22783 -0.21833 0.066876"
+      rpy="-0.047092 -0.027781 -0.75024" />
+    <parent
+      link="base_link" />
+    <child
+      link="prop2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="prop3">
+    <inertial>
+      <origin
+        xyz="0.00095032 8.8059E-05 0.0072482"
+        rpy="0 0 0" />
+      <mass
+        value="0.0032755" />
+      <inertia
+        ixx="1.0524E-06"
+        ixy="-2.9734E-11"
+        ixz="2.4635E-11"
+        iyy="1.0524E-06"
+        iyz="-7.8753E-12"
+        izz="2.0809E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://velatrix_description/meshes/prop3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://velatrix_description/meshes/prop3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop3_jt"
+    type="continuous">
+    <origin
+      xyz="-0.22656 -0.21631 0.057846"
+      rpy="-0.047092 0.021156 -2.3914" />
+    <parent
+      link="base_link" />
+    <child
+      link="prop3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="duct1">
+    <inertial>
+      <origin
+        xyz="0.00030982 -0.012539 0.071053"
+        rpy="0 0 0" />
+      <mass
+        value="0.19538" />
+      <inertia
+        ixx="0.00053841"
+        ixy="1.4009E-05"
+        ixz="1.895E-09"
+        iyy="0.00083502"
+        iyz="3.8362E-08"
+        izz="0.00054059" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://velatrix_description/meshes/duct1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://velatrix_description/meshes/duct1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="duct1_jt"
+    type="revolute">
+    <origin
+      xyz="0.17852 0.1664 0.09001"
+      rpy="1.5465 0 2.3155" />
+    <parent
+      link="base_link" />
+    <child
+      link="duct1" />
+    <axis
+      xyz="0 0.10601 0.99436" />
+    <limit
+      lower="0"
+      upper="1.571"
+      effort="0.98"
+      velocity="1" />
+  </joint>
+  <link
+    name="prop1">
+    <inertial>
+      <origin
+        xyz="-0.00066393 -0.0006891 0.0072482"
+        rpy="0 0 0" />
+      <mass
+        value="0.0032753" />
+      <inertia
+        ixx="1.0523E-06"
+        ixy="5.635E-11"
+        ixz="-9.7817E-12"
+        iyy="1.0524E-06"
+        iyz="2.3558E-12"
+        izz="2.0808E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://velatrix_description/meshes/prop1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://velatrix_description/meshes/prop1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop1_jt"
+    type="continuous">
+    <origin
+      xyz="0.00038649 -0.025495 0.071504"
+      rpy="1.5708 -1.5708 3.1291" />
+    <parent
+      link="duct1" />
+    <child
+      link="prop1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="1" />
+  </joint>
+  <link
+    name="duct2">
+    <inertial>
+      <origin
+        xyz="-0.00030964 -0.002048 0.074063"
+        rpy="0 0 0" />
+      <mass
+        value="0.19538" />
+      <inertia
+        ixx="0.00053841"
+        ixy="1.4009E-05"
+        ixz="-2.6853E-09"
+        iyy="0.00083502"
+        iyz="-3.8397E-08"
+        izz="0.00054059" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://velatrix_description/meshes/duct2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://velatrix_description/meshes/duct2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="duct2_jt"
+    type="revolute">
+    <origin
+      xyz="-0.17517 0.16587 0.074472"
+      rpy="-1.5543 0 0.82056" />
+    <parent
+      link="base_link" />
+    <child
+      link="duct2" />
+    <axis
+      xyz="0 0.022049 0.99976" />
+    <limit
+      lower="0"
+      upper="1.571"
+      effort="0.98"
+      velocity="1" />
+  </joint>
+  <link
+    name="prop4">
+    <inertial>
+      <origin
+        xyz="-0.00074411 0.00059711 0.0072481"
+        rpy="0 0 0" />
+      <mass
+        value="0.0032754" />
+      <inertia
+        ixx="1.0524E-06"
+        ixy="6.021E-11"
+        ixz="-1.4826E-11"
+        iyy="1.0524E-06"
+        iyz="4.7421E-12"
+        izz="2.0809E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://velatrix_description/meshes/prop4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://velatrix_description/meshes/prop4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop4_jt"
+    type="continuous">
+    <origin
+      xyz="0.00089473 0.010847 0.074596"
+      rpy="1.6179 -1.5708 0" />
+    <parent
+      link="duct2" />
+    <child
+      link="prop4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+
+</robot>

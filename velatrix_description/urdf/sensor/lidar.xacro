@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    
+  <link
+    name="lidar">
+    <inertial>
+      <origin
+        xyz="-0.00033747 -0.012049 -0.0037868"
+        rpy="0 0 0" />
+      <mass
+        value="0.071662" />
+      <inertia
+        ixx="2.3859E-05"
+        ixy="3.5708E-07"
+        ixz="-1.3126E-08"
+        iyy="1.8048E-05"
+        iyz="3.251E-07"
+        izz="3.9433E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://velatrix_description/meshes/lidar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://velatrix_description/meshes/lidar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lidar_jt"
+    type="fixed">
+    <origin
+      xyz="2.3087E-05 -0.00036228 0.14781"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="lidar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

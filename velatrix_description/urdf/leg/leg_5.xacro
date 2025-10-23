@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    
+<link
+    name="c5">
+    <inertial>
+      <origin
+        xyz="0.030615 0.0027403 -0.023254"
+        rpy="0 0 0" />
+      <mass
+        value="0.069241" />
+      <inertia
+        ixx="1.4942E-05"
+        ixy="5.0456E-10"
+        ixz="-8.4728E-08"
+        iyy="1.4977E-05"
+        iyz="8.379E-08"
+        izz="1.1522E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://velatrix_description/meshes/c5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://velatrix_description/meshes/c5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="c5_jt"
+    type="revolute">
+    <origin
+      xyz="-0.069977 -0.00036228 0.04925"
+      rpy="0 -0.0002253 -3.1161" />
+    <parent
+      link="base_link" />
+    <child
+      link="c5" />
+    <axis
+      xyz="-0.0002253 0 -1" />
+    <limit
+      lower="0.785"
+      upper="2.356"
+      effort="2.4"
+      velocity="1" />
+  </joint>
+  <link
+    name="f5">
+    <inertial>
+      <origin
+        xyz="0.03472 -0.010679 -0.024013"
+        rpy="0 0 0" />
+      <mass
+        value="0.01661" />
+      <inertia
+        ixx="2.6314E-06"
+        ixy="3.5961E-06"
+        ixz="-5.0193E-08"
+        iyy="9.0559E-06"
+        iyz="2.2467E-08"
+        izz="1.1175E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://velatrix_description/meshes/f5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://velatrix_description/meshes/f5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="f5_jt"
+    type="revolute">
+    <origin
+      xyz="0.054481 0.027975 -0.013863"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="c5" />
+    <child
+      link="f5" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0.785"
+      upper="2.356"
+      effort="2.4"
+      velocity="1" />
+  </joint>
+  <link
+    name="t5">
+    <inertial>
+      <origin
+        xyz="0.015333 -0.030061 -0.026441"
+        rpy="0 0 0" />
+      <mass
+        value="0.12541" />
+      <inertia
+        ixx="0.00018132"
+        ixy="2.8583E-05"
+        ixz="-9.0615E-09"
+        iyy="3.178E-05"
+        iyz="8.3826E-08"
+        izz="0.000196" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://velatrix_description/meshes/t5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://velatrix_description/meshes/t5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="t5_jt"
+    type="revolute">
+    <origin
+      xyz="0.063892 -0.028598 -0.0457"
+      rpy="-3.1416 0 0" />
+    <parent
+      link="f5" />
+    <child
+      link="t5" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0.785"
+      upper="2.356"
+      effort="2.4"
+      velocity="1" />
+  </joint>
+
+</robot>

@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
     
- <link
+  <link
     name="depth_camera">
     <inertial>
       <origin
-        xyz="0.00011447 -0.0038099 -0.001006"
+        xyz="5.7613E-05 -0.0034402 9.2747E-05"
         rpy="0 0 0" />
       <mass
-        value="0.0037619" />
+        value="0.0032848" />
       <inertia
-        ixx="2.9482E-07"
-        ixy="-4.5891E-10"
-        ixz="2.2255E-11"
-        iyy="6.1122E-07"
-        iyz="-1.2321E-10"
-        izz="3.21E-07" />
+        ixx="2.9286E-07"
+        ixy="-4.6644E-10"
+        ixz="2.1929E-11"
+        iyy="6.0022E-07"
+        iyz="-6.8969E-11"
+        izz="3.1133E-07" />
     </inertial>
     <visual>
       <origin
@@ -28,7 +28,7 @@
       <material
         name="">
         <color
-          rgba="0.75294 0.75294 0.75294 1" />
+          rgba="0.37647 0.37647 0.37647 1" />
       </material>
     </visual>
     <collision>
@@ -41,6 +41,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="depth_camera_jt"
     type="fixed">
@@ -51,7 +52,6 @@
       link="base_link" />
     <child
       link="depth_camera" />
-    <axis
-      xyz="0 0 0" />
   </joint>
+
 </robot>

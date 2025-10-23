@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
     
-<link
+  <link
     name="c5">
     <inertial>
       <origin
-        xyz="0.030615 0.0027403 -0.023254"
+        xyz="0.030614 0.0027403 -0.026854"
         rpy="0 0 0" />
       <mass
         value="0.069241" />
@@ -41,24 +41,26 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="c5_jt"
     type="revolute">
     <origin
-      xyz="-0.069977 -0.00036228 0.04925"
+      xyz="-0.069977 -0.00036228 0.05285"
       rpy="0 -0.0002253 -3.1161" />
     <parent
       link="base_link" />
     <child
       link="c5" />
     <axis
-      xyz="-0.0002253 0 -1" />
+      xyz="0 0 1" />
     <limit
-      lower="0.785"
-      upper="2.356"
+      lower="-0.785"
+      upper="0.785"
       effort="2.4"
-      velocity="1" />
+      velocity="1.0" />
   </joint>
+
   <link
     name="f5">
     <inertial>
@@ -99,24 +101,26 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="f5_jt"
     type="revolute">
     <origin
-      xyz="0.054481 0.027975 -0.013863"
+      xyz="0.05448 0.027975 -0.017463"
       rpy="-1.5708 0 0" />
     <parent
       link="c5" />
     <child
       link="f5" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
-      lower="0.785"
-      upper="2.356"
+      lower="-0.785"
+      upper="0.785"
       effort="2.4"
-      velocity="1" />
+      velocity="1.0" />
   </joint>
+
   <link
     name="t5">
     <inertial>
@@ -157,6 +161,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="t5_jt"
     type="revolute">
@@ -168,12 +173,12 @@
     <child
       link="t5" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
-      lower="0.785"
-      upper="2.356"
+      lower="-0.785"
+      upper="0.785"
       effort="2.4"
-      velocity="1" />
+      velocity="1.0" />
   </joint>
 
 </robot>

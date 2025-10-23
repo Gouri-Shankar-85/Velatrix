@@ -5,7 +5,7 @@
     name="c2">
     <inertial>
       <origin
-        xyz="0.030616 -0.0027342 -0.023249"
+        xyz="0.030615 -0.0027342 -0.026849"
         rpy="0 0 0" />
       <mass
         value="0.069241" />
@@ -41,23 +41,24 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="c2_jt"
     type="revolute">
     <origin
-      xyz="0.070023 -0.00036228 0.04925"
+      xyz="0.070023 -0.00036228 0.05285"
       rpy="0 -0.0002253 0.028762" />
     <parent
       link="base_link" />
     <child
       link="c2" />
     <axis
-      xyz="-0.0002253 0 -1" />
+      xyz="0 0 1" />
     <limit
-      lower="0.785"
-      upper="2.356"
+      lower="-0.785"
+      upper="0.785"
       effort="2.4"
-      velocity="1" />
+      velocity="1.0" />
   </joint>
   <link
     name="f2">
@@ -103,19 +104,19 @@
     name="f2_jt"
     type="revolute">
     <origin
-      xyz="0.054484 -0.027961 -0.013852"
+      xyz="0.054484 -0.027961 -0.017452"
       rpy="1.5708 0 0" />
     <parent
       link="c2" />
     <child
       link="f2" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
-      lower="0.785"
-      upper="2.356"
+      lower="-0.785"
+      upper="0.785"
       effort="2.4"
-      velocity="1" />
+      velocity="1.0" />
   </joint>
   <link
     name="t2">
@@ -168,11 +169,12 @@
     <child
       link="t2" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
-      lower="0.785"
-      upper="2.356"
+      lower="-0.785"
+      upper="0.785"
       effort="2.4"
-      velocity="1" />
+      velocity="1.0" />
   </joint>
+
 </robot>

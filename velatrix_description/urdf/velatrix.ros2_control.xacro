@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <ros2_control name="IgnitionSystem" type="system">
+    <hardware>
+      <plugin>ign_ros2_control/IgnitionSystem</plugin>
+    </hardware>
+
+    <!-- Leg 1 Joints -->
+    <joint name="c1_jt">
+      <command_interface name="position">
+        <param name="min">-0.785</param>
+        <param name="max">0.785</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="f1_jt">
+      <command_interface name="position">
+        <param name="min">-0.785</param>
+        <param name="max">0.785</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="t1_jt">
+      <command_interface name="position">
+        <param name="min">-0.785</param>
+        <param name="max">0.785</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <!-- Leg 2 Joints -->
+    <joint name="c2_jt">
+      <command_interface name="position">
+        <param name="min">-0.785</param>
+        <param name="max">0.785</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="f2_jt">
+      <command_interface name="position">
+        <param name="min">-0.785</param>
+        <param name="max">0.785</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="t2_jt">
+      <command_interface name="position">
+        <param name="min">-0.785</param>
+        <param name="max">0.785</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <!-- Leg 3 Joints -->
+    <joint name="c3_jt">
+      <command_interface name="position">
+        <param name="min">-0.785</param>
+        <param name="max">0.785</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="f3_jt">
+      <command_interface name="position">
+        <param name="min">-0.785</param>
+        <param name="max">0.785</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="t3_jt">
+      <command_interface name="position">
+        <param name="min">-0.785</param>
+        <param name="max">0.785</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <!-- Leg 4 Joints -->
+    <joint name="c4_jt">
+      <command_interface name="position">
+        <param name="min">-0.785</param>
+        <param name="max">0.785</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="f4_jt">
+      <command_interface name="position">
+        <param name="min">-0.785</param>
+        <param name="max">0.785</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="t4_jt">
+      <command_interface name="position">
+        <param name="min">-0.785</param>
+        <param name="max">0.785</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <!-- Leg 5 Joints -->
+    <joint name="c5_jt">
+      <command_interface name="position">
+        <param name="min">-0.785</param>
+        <param name="max">0.785</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="f5_jt">
+      <command_interface name="position">
+        <param name="min">-0.785</param>
+        <param name="max">0.785</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="t5_jt">
+      <command_interface name="position">
+        <param name="min">-0.785</param>
+        <param name="max">0.785</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <!-- Leg 6 Joints -->
+    <joint name="c6_jt">
+      <command_interface name="position">
+        <param name="min">-0.785</param>
+        <param name="max">0.785</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="f6_jt">
+      <command_interface name="position">
+        <param name="min">-0.785</param>
+        <param name="max">0.785</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="t6_jt">
+      <command_interface name="position">
+        <param name="min">-0.785</param>
+        <param name="max">0.785</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+  </ros2_control>
+
+</robot>

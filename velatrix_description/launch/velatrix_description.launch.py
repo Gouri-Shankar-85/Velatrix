@@ -26,13 +26,13 @@ def generate_launch_description():
         executable="joint_state_publisher_gui"
     )
 
-    # rviz2_node = Node(
-    #     package="rviz2",
-    #     executable="rviz2",
-    #     # arguments=['-d', rviz_config_path]
-    #     # additional_env={'LIBGL_ALWAYS_SOFTWARE': '1', 'QT_QPA_PLATFORM': 'xcb'}
+    """ rviz2_node = Node(
+        package="rviz2",
+        executable="rviz2",
+        # arguments=['-d', rviz_config_path]
+        # additional_env={'LIBGL_ALWAYS_SOFTWARE': '1', 'QT_QPA_PLATFORM': 'xcb'}
 
-    # )
+    ) """
 
     return LaunchDescription([
         robot_state_publisher_node,

@@ -1,11 +1,10 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
     
-<link
-    name="c1">
+  <link name="c1">
     <inertial>
       <origin
-        xyz="0.030616 -0.0027342 -0.023249"
+        xyz="0.030615 -0.0027342 -0.026849"
         rpy="0 0 0" />
       <mass
         value="0.069241" />
@@ -17,6 +16,7 @@
         iyz="-8.4767E-08"
         izz="1.1522E-05" />
     </inertial>
+
     <visual>
       <origin
         xyz="0 0 0"
@@ -31,6 +31,7 @@
           rgba="1 0 0 1" />
       </material>
     </visual>
+
     <collision>
       <origin
         xyz="0 0 0"
@@ -41,26 +42,25 @@
       </geometry>
     </collision>
   </link>
-  <joint
-    name="c1_jt"
-    type="revolute">
+
+  <joint name="c1_jt" type="revolute">
     <origin
-      xyz="0.039287 0.06031 0.04925"
+      xyz="0.039287 0.06031 0.05285"
       rpy="0 -0.0002253 0.9751" />
     <parent
       link="base_link" />
     <child
       link="c1" />
     <axis
-      xyz="-0.0002253 0 -1" />
+      xyz="0 0 1" />
     <limit
-      lower="0.785"
-      upper="2.356"
+      lower="-0.785"
+      upper="0.785"
       effort="2.4"
-      velocity="1" />
+      velocity="1.0" />
   </joint>
-  <link
-    name="f1">
+
+  <link name="f1">
     <inertial>
       <origin
         xyz="0.032684 0.005636 -0.021687"
@@ -75,6 +75,7 @@
         iyz="-1.6511E-08"
         izz="1.1175E-05" />
     </inertial>
+
     <visual>
       <origin
         xyz="0 0 0"
@@ -89,6 +90,7 @@
           rgba="0.1098 0.1098 0.1098 1" />
       </material>
     </visual>
+
     <collision>
       <origin
         xyz="0 0 0"
@@ -99,26 +101,25 @@
       </geometry>
     </collision>
   </link>
-  <joint
-    name="f1_jt"
-    type="revolute">
+
+  <joint name="f1_jt" type="revolute">
     <origin
-      xyz="0.054484 -0.027961 -0.013852"
+      xyz="0.054484 -0.027961 -0.017452"
       rpy="1.5708 0 0" />
     <parent
       link="c1" />
     <child
       link="f1" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
-      lower="0.785"
-      upper="2.356"
+      lower="-0.785"
+      upper="0.785"
       effort="2.4"
-      velocity="1" />
+      velocity="1.0" />
   </joint>
-  <link
-    name="t1">
+
+  <link name="t1">
     <inertial>
       <origin
         xyz="0.012551 0.031325 -0.026295"
@@ -133,6 +134,7 @@
         iyz="-8.4244E-08"
         izz="0.000196" />
     </inertial>
+
     <visual>
       <origin
         xyz="0 0 0"
@@ -147,6 +149,7 @@
           rgba="1 0 0 1" />
       </material>
     </visual>
+
     <collision>
       <origin
         xyz="0 0 0"
@@ -157,9 +160,8 @@
       </geometry>
     </collision>
   </link>
-  <joint
-    name="t1_jt"
-    type="revolute">
+
+  <joint name="t1_jt" type="revolute">
     <origin
       xyz="0.06677 0.021017 -0.0457"
       rpy="3.1416 0 0" />
@@ -168,11 +170,11 @@
     <child
       link="t1" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
-      lower="0.785"
-      upper="2.356"
-      effort="1"
+      lower="-0.785"
+      upper="0.785"
+      effort="1.0"
       velocity="2.4" />
   </joint>
 

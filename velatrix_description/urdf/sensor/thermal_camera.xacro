@@ -5,17 +5,17 @@
     name="thermal_camera">
     <inertial>
       <origin
-        xyz="0.0022649 -0.0045666 -5.3595E-05"
+        xyz="0.0027024 -0.0044041 0.00040923"
         rpy="0 0 0" />
       <mass
-        value="0.0014693" />
+        value="0.0011581" />
       <inertia
-        ixx="7.6254E-08"
-        ixy="-8.9935E-13"
-        ixz="-2.2398E-11"
-        iyy="1.3203E-07"
-        iyz="7.6296E-14"
-        izz="5.7067E-08" />
+        ixx="7.427E-08"
+        ixy="-6.8145E-24"
+        ixz="-2.7603E-11"
+        iyy="1.2871E-07"
+        iyz="2.5154E-12"
+        izz="5.5021E-08" />
     </inertial>
     <visual>
       <origin
@@ -28,7 +28,7 @@
       <material
         name="">
         <color
-          rgba="0.75294 0.75294 0.75294 1" />
+          rgba="0.79216 0.81961 0.93333 1" />
       </material>
     </visual>
     <collision>
@@ -41,17 +41,19 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="thermal_camera_jt"
     type="fixed">
     <origin
-      xyz="0.014989 0.13586 0.11642"
+      xyz="0.014989 0.13522 0.11643"
       rpy="-0.019827 0 0" />
     <parent
       link="base_link" />
     <child
       link="thermal_camera" />
     <axis
-      xyz="1 0 0" />
+      xyz="0 0 0" />
   </joint>
+
 </robot>

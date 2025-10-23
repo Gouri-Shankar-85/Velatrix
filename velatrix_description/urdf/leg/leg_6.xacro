@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
     
- <link
+  <link
     name="c6">
     <inertial>
       <origin
-        xyz="0.030615 0.0027403 -0.023254"
+        xyz="0.030614 0.0027403 -0.026854"
         rpy="0 0 0" />
       <mass
         value="0.069241" />
@@ -45,20 +45,21 @@
     name="c6_jt"
     type="revolute">
     <origin
-      xyz="-0.038726 0.060651 0.04925"
+      xyz="-0.038726 0.060651 0.05285"
       rpy="0 -0.0002253 2.1693" />
     <parent
       link="base_link" />
     <child
       link="c6" />
     <axis
-      xyz="-0.0002253 0 -1" />
+      xyz="0 0 1" />
     <limit
-      lower="0.785"
-      upper="2.356"
+      lower="-0.785"
+      upper="0.785"
       effort="2.4"
-      velocity="1" />
+      velocity="1.0" />
   </joint>
+
   <link
     name="f6">
     <inertial>
@@ -99,24 +100,26 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="f6_jt"
     type="revolute">
     <origin
-      xyz="0.054481 0.027975 -0.013863"
+      xyz="0.05448 0.027975 -0.017463"
       rpy="-1.5708 0 0" />
     <parent
       link="c6" />
     <child
       link="f6" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
-      lower="0.785"
-      upper="2.356"
+      lower="-0.785"
+      upper="0.785"
       effort="2.4"
-      velocity="1" />
+      velocity="1.0" />
   </joint>
+
   <link
     name="t6">
     <inertial>
@@ -157,6 +160,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="t6_jt"
     type="revolute">
@@ -168,12 +172,12 @@
     <child
       link="t6" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
-      lower="0.785"
-      upper="2.356"
+      lower="-0.785"
+      upper="0.785"
       effort="2.4"
-      velocity="1" />
+      velocity="1.0" />
   </joint>
 
 </robot>

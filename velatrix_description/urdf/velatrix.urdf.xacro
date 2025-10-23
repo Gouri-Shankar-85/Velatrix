@@ -2,11 +2,20 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="velatrix">
 
     <xacro:include filename="base/base.xacro"/>
-    <!-- <xacro:include filename="leg/leg_1.xacro"/>
+    <xacro:include filename="leg/leg_1.xacro"/>
     <xacro:include filename="leg/leg_2.xacro"/>
     <xacro:include filename="leg/leg_3.xacro"/>
     <xacro:include filename="leg/leg_4.xacro"/>
     <xacro:include filename="leg/leg_5.xacro"/>
     <xacro:include filename="leg/leg_6.xacro"/>
- -->
+    <xacro:include filename="sensor/depth_camera.xacro"/>
+    <xacro:include filename="sensor/thermal_camera.xacro"/>
+    <xacro:include filename="sensor/lidar.xacro"/>
+    <xacro:include filename="drone/drone.xacro"/>
+
+    <xacro:include filename="gazebo.xacro"/>
+    <xacro:include filename="velatrix.ros2_control.xacro"/>
+
+
+
 </robot>

@@ -1,0 +1,69 @@
+material UrbanTile/Concrete_Tunnel_Albedo
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture Concrete_Tunnel_Albedo.jpg
+      }
+    }
+  }
+}
+  
+material UrbanTile/Light_Diffuse
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture Light_Diffuse.jpg
+      }
+    }
+  }
+}
+  
+material UrbanTile/Shaft_Diffuse
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture Shaft_Diffuse.jpg
+      }
+    }
+  }
+}
+  
+material UrbanTile/Rail_Diffuse
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture Rail_Diffuse.jpg
+      }
+    }
+  }
+}
+
+material UrbanTile/ThirdRail_Diffuse
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture ThirdRail_Diffuse.jpg
+      }
+    }
+  }
+}

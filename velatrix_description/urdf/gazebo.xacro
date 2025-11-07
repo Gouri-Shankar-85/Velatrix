@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Gazebo plugin for ros2_control -->
+  <gazebo>
+    <plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin">
+      <parameters>$(find velatrix_bringup)/config/velatrix_hexapod_controller.yaml</parameters>
+    </plugin>
+  </gazebo>
+
+  <!-- Gazebo references for all links -->
+  <gazebo reference="base_link">
+    <material>Gazebo/Grey</material>
+    <mu1>0.8</mu1>
+    <mu2>0.8</mu2>
+  </gazebo>
+
+  <!-- Leg 1 -->
+  <gazebo reference="c1">
+    <material>Gazebo/Red</material>
+    <mu1>0.8</mu1>
+    <mu2>0.8</mu2>
+  </gazebo>
+
+  <gazebo reference="f1">
+    <material>Gazebo/DarkGrey</material>
+    <mu1>0.8</mu1>
+    <mu2>0.8</mu2>
+  </gazebo>
+
+  <gazebo reference="t1">
+    <material>Gazebo/Red</material>
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+  </gazebo>
+
+  <!-- Leg 2 -->
+  <gazebo reference="c2">
+    <material>Gazebo/Red</material>
+    <mu1>0.8</mu1>
+    <mu2>0.8</mu2>
+  </gazebo>
+
+  <gazebo reference="f2">
+    <material>Gazebo/Red</material>
+    <mu1>0.8</mu1>
+    <mu2>0.8</mu2>
+  </gazebo>
+
+  <gazebo reference="t2">
+    <material>Gazebo/Red</material>
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+  </gazebo>
+
+  <!-- Leg 3 -->
+  <gazebo reference="c3">
+    <material>Gazebo/Red</material>
+    <mu1>0.8</mu1>
+    <mu2>0.8</mu2>
+  </gazebo>
+
+  <gazebo reference="f3">
+    <material>Gazebo/Red</material>
+    <mu1>0.8</mu1>
+    <mu2>0.8</mu2>
+  </gazebo>
+
+  <gazebo reference="t3">
+    <material>Gazebo/Red</material>
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+  </gazebo>
+
+  <!-- Leg 4 -->
+  <gazebo reference="c4">
+    <material>Gazebo/Red</material>
+    <mu1>0.8</mu1>
+    <mu2>0.8</mu2>
+  </gazebo>
+
+  <gazebo reference="f4">
+    <material>Gazebo/Red</material>
+    <mu1>0.8</mu1>
+    <mu2>0.8</mu2>
+  </gazebo>
+
+  <gazebo reference="t4">
+    <material>Gazebo/Red</material>
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+  </gazebo>
+
+  <!-- Leg 5 -->
+  <gazebo reference="c5">
+    <material>Gazebo/Red</material>
+    <mu1>0.8</mu1>
+    <mu2>0.8</mu2>
+  </gazebo>
+
+  <gazebo reference="f5">
+    <material>Gazebo/Red</material>
+    <mu1>0.8</mu1>
+    <mu2>0.8</mu2>
+  </gazebo>
+
+  <gazebo reference="t5">
+    <material>Gazebo/Red</material>
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+  </gazebo>
+
+  <!-- Leg 6 -->
+  <gazebo reference="c6">
+    <material>Gazebo/Red</material>
+    <mu1>0.8</mu1>
+    <mu2>0.8</mu2>
+  </gazebo>
+
+  <gazebo reference="f6">
+    <material>Gazebo/Red</material>
+    <mu1>0.8</mu1>
+    <mu2>0.8</mu2>
+  </gazebo>
+
+  <gazebo reference="t6">
+    <material>Gazebo/Red</material>
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+  </gazebo>
+
+</robot>

@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    
+  <link name="thermal_camera">
+    <inertial>
+      <origin
+        xyz="0.0027024 -0.0044041 0.00040923"
+        rpy="0 0 0" />
+      <mass
+        value="0.0011581" />
+      <inertia
+        ixx="7.427E-08"
+        ixy="-6.8145E-24"
+        ixz="-2.7603E-11"
+        iyy="1.2871E-07"
+        iyz="2.5154E-12"
+        izz="5.5021E-08" />
+    </inertial>
+    
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find velatrix_description)/meshes/thermal_camera.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find velatrix_description)/meshes/thermal_camera.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="thermal_camera_jt" type="fixed">
+    <origin
+      xyz="0.014989 0.13522 0.11643"
+      rpy="-0.019827 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="thermal_camera" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+</robot>

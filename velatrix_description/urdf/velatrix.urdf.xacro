@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="velatrix">
+
+    <xacro:include filename="$(find velatrix_description)/urdf/base/base.xacro" />
+
+    <xacro:include filename="$(find velatrix_description)/urdf/leg/leg_1.xacro"/>
+    <xacro:include filename="$(find velatrix_description)/urdf/leg/leg_2.xacro"/>
+    <xacro:include filename="$(find velatrix_description)/urdf/leg/leg_3.xacro"/>
+    <xacro:include filename="$(find velatrix_description)/urdf/leg/leg_4.xacro"/>
+    <xacro:include filename="$(find velatrix_description)/urdf/leg/leg_5.xacro"/>
+    <xacro:include filename="$(find velatrix_description)/urdf/leg/leg_6.xacro"/> 
+
+    <xacro:include filename="$(find velatrix_description)/urdf/sensor/depth_camera.xacro"/>
+    <xacro:include filename="$(find velatrix_description)/urdf/sensor/thermal_camera.xacro"/>
+    <xacro:include filename="$(find velatrix_description)/urdf/sensor/lidar.xacro"/>
+    
+    <xacro:include filename="$(find velatrix_description)/urdf/drone/drone.xacro"/>
+
+    <!-- <xacro:include filename="gazebo.xacro"/>
+    <xacro:include filename="velatrix.ros2_control.xacro"/> -->
+
+
+
+</robot>

@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="urban_3way_right">
+    <static>true</static>
+    <link name="base_link">
+      <pose>0 0 0 1.5708 0 0</pose>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>meshes/3way_right.dae</uri>
+            <scale>1.0008 1.0008 1.0008</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="Light_visual">
+        <geometry>
+          <mesh>
+            <uri>meshes/3way_right.dae</uri>
+            <submesh>
+              <name>Light</name>
+              <center>false</center>
+            </submesh>
+            <scale>1.0008 1.0008 1.0008</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Urban Platform/tip/files/materials/textures/Light_Albedo.jpg</albedo_map>
+              <normal_map>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Urban Platform/tip/files/materials/textures/Light_Normal.jpg</normal_map>
+              <metalness_map>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Urban Platform/tip/files/materials/textures/Light_Metalness.jpg</metalness_map>
+              <roughness_map>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Urban Platform/tip/files/materials/textures/Light_Roughness.jpg</roughness_map>
+            </metal>
+          </pbr>
+          <!-- fallback to script if no PBR support-->
+          <script>
+            <uri>materials/scripts/</uri>
+            <uri>materials/textures/</uri>
+            <name>UrbanTile/Light_Diffuse</name>
+          </script>
+        </material>
+      </visual>
+      <visual name="Rail_visual">
+        <geometry>
+          <mesh>
+            <uri>meshes/3way_right.dae</uri>
+            <submesh>
+              <name>Rail</name>
+              <center>false</center>
+            </submesh>
+            <scale>1.0008 1.0008 1.0008</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Urban Platform/tip/files/materials/textures/Rail_Albedo.jpg</albedo_map>
+              <normal_map>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Urban Platform/tip/files/materials/textures/Rail_Normal.jpg</normal_map>
+              <metalness_map>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Urban Platform/tip/files/materials/textures/Rail_Metalness.jpg</metalness_map>
+              <roughness_map>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Urban Platform/tip/files/materials/textures/Rail_Roughness.jpg</roughness_map>
+            </metal>
+          </pbr>
+          <!-- fallback to script if no PBR support-->
+          <script>
+            <uri>materials/scripts/</uri>
+            <uri>materials/textures/</uri>
+            <name>UrbanTile/Rail_Diffuse</name>
+          </script>
+        </material>
+      </visual>
+      <visual name="ThirdRail_visual">
+        <geometry>
+          <mesh>
+            <uri>meshes/3way_right.dae</uri>
+            <submesh>
+              <name>ThirdRail</name>
+              <center>false</center>
+            </submesh>
+            <scale>1.0008 1.0008 1.0008</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Urban Platform/tip/files/materials/textures/ThirdRail_Albedo.jpg</albedo_map>
+              <normal_map>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Urban Platform/tip/files/materials/textures/ThirdRail_Normal.jpg</normal_map>
+              <metalness_map>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Urban Platform/tip/files/materials/textures/ThirdRail_Metalness.jpg</metalness_map>
+              <roughness_map>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Urban Platform/tip/files/materials/textures/ThirdRail_Roughness.jpg</roughness_map>
+            </metal>
+          </pbr>
+          <!-- fallback to script if no PBR support-->
+          <script>
+            <uri>materials/scripts/</uri>
+            <uri>materials/textures/</uri>
+            <name>UrbanTile/ThirdRail_Diffuse</name>
+          </script>
+        </material>
+      </visual>
+      <visual name="Concrete_Tunnel_visual">
+        <geometry>
+          <mesh>
+            <uri>meshes/3way_right.dae</uri>
+            <submesh>
+              <name>Concrete_Tunnel</name>
+              <center>false</center>
+            </submesh>
+            <scale>1.0008 1.0008 1.0008</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Urban Platform/tip/files/materials/textures/Concrete_Tunnel_Albedo.jpg</albedo_map>
+              <normal_map>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Urban Platform/tip/files/materials/textures/Concrete_Tunnel_Normal.jpg</normal_map>
+              <roughness_map>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Urban Platform/tip/files/materials/textures/Concrete_Tunnel_Roughness.jpg</roughness_map>
+            </metal>
+          </pbr>
+          <!-- fallback to script if no PBR support-->
+          <script>
+            <uri>materials/scripts/</uri>
+            <uri>materials/textures/</uri>
+            <name>UrbanTile/Concrete_Tunnel_Albedo</name>
+          </script>
+        </material>
+      </visual>
+      <visual name="Shaft_visual">
+        <geometry>
+          <mesh>
+            <uri>meshes/3way_right.dae</uri>
+            <submesh>
+              <name>Shaft</name>
+              <center>false</center>
+            </submesh>
+            <scale>1.0008 1.0008 1.0008</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Urban Platform/tip/files/materials/textures/Shaft_Albedo.jpg</albedo_map>
+              <normal_map>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Urban Platform/tip/files/materials/textures/Shaft_Normal.jpg</normal_map>
+              <metalness_map>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Urban Platform/tip/files/materials/textures/Shaft_Metalness.jpg</metalness_map>
+              <roughness_map>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Urban Platform/tip/files/materials/textures/Shaft_Roughness.jpg</roughness_map>
+            </metal>
+          </pbr>
+          <!-- fallback to script if no PBR support-->
+          <script>
+            <uri>materials/scripts/</uri>
+            <uri>materials/textures/</uri>
+            <name>UrbanTile/Shaft_Diffuse</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+      <!--Uncomment <link> to preview detector region-->
+        <!--<link name='body2'>
+        <visual name="v1">
+          <pose>1 -12 3 0 0 0</pose>
+          <transparency>0.2</transparency>
+          <geometry>
+            <box>
+              <size>8 4 6</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.0 1.0 0.0 1</diffuse>
+          </material>
+        </visual>
+        <cast_shadows>false</cast_shadows>
+      </link>-->
+      <plugin filename="libignition-gazebo-performer-detector-system.so" name="ignition::gazebo::systems::PerformerDetector">
+        <topic>/subt_performer_detector</topic>
+        <pose>1 -12 3 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>8 4 6</size>
+          </box>
+        </geometry>
+        <header_data>
+          <key>type</key>
+          <value>decision</value>
+        </header_data>
+      </plugin>
+
+  </model>
+</sdf>

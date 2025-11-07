@@ -1,0 +1,994 @@
+<?xml version="1.0" ?>
+<sdf version='1.9'>
+
+  <world name='disaster_area'>
+
+    <physics name='1ms' type='ignored'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+
+    <plugin name='gz::sim::systems::Physics' filename='ignition-gazebo-physics-system'/>
+    <plugin name='gz::sim::systems::UserCommands' filename='ignition-gazebo-user-commands-system'/>
+    <plugin name='gz::sim::systems::SceneBroadcaster' filename='ignition-gazebo-scene-broadcaster-system'/>
+    <plugin name='gz::sim::systems::Contact' filename='ignition-gazebo-contact-system'/>
+
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>true</shadows>
+    </scene>
+
+    <model name='collapsed_fire_station'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/collapsed fire station/3/files/meshes/collapsed_fire_station.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/collapsed fire station/3/files/meshes/collapsed_fire_station.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0.885159 1.19153 0 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+
+    <model name='collapsed_police_station'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/collapsed police station/3/files/meshes/collapsed_police_station.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/collapsed police station/3/files/meshes/collapsed_police_station.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>17.2036 8.77391 0 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+
+    <model name='collapsed_house'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>1.5 1.5 1.5</scale>
+              <uri>file:///home/devan/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/collapsed house/4/meshes/collapsed_house.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>1.5 1.5 1.5</scale>
+              <uri>file:///home/devan/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/collapsed house/4/meshes/collapsed_house.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-27.8036 4.51144 0 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+
+    <model name='Lamp Post'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/lamp post/3/files/meshes/lamp_post.dae</uri>
+              <scale>3 3 3</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/lamp post/3/files/meshes/lamp_post.dae</uri>
+              <scale>3 3 3</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-19.3928 -1.04705 0 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+
+    <model name='Lamp Post_1'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/lamp post/3/files/meshes/lamp_post.dae</uri>
+              <scale>3 3 3</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/lamp post/3/files/meshes/lamp_post.dae</uri>
+              <scale>3 3 3</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-37.5932 -1.05356 -0.86941 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+
+    <model name='Lamp Post_2'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/lamp post/3/files/meshes/lamp_post.dae</uri>
+              <scale>3 3 3</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/lamp post/3/files/meshes/lamp_post.dae</uri>
+              <scale>3 3 3</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>13.8981 -5.84148 0 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+
+    <model name='BaseStation'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision_tent'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/devan/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/base station/9/meshes/tent.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='collision_antenna'>
+          <pose>0 2 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/devan/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/base station/9/meshes/antenna.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='visual_tent'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/devan/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/base station/9/meshes/tent.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='visual_antenna'>
+          <pose>0 2 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/devan/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/base station/9/meshes/antenna.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>32.3349 10.4817 0 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/grasspatch</uri>
+      <name>grasspatch</name>
+      <pose>-2.51821 -2.52877 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/grasspatch</uri>
+      <name>grasspatch_1</name>
+      <pose>12.3673 -2.54167 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/grasspatch</uri>
+      <name>grasspatch_2</name>
+      <pose>27.3126 -2.52724 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/grasspatch</uri>
+      <name>grasspatch_3</name>
+      <pose>42.0613 -2.55425 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/grasspatch</uri>
+      <name>grasspatch_4</name>
+      <pose>-17.5275 -2.57509 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/grasspatch</uri>
+      <name>grasspatch_5</name>
+      <pose>-32.4811 -2.58798 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/grasspatch</uri>
+      <name>grasspatch_6</name>
+      <pose>-32.4912 12.3098 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/grasspatch</uri>
+      <name>grasspatch_7</name>
+      <pose>-17.7068 12.2886 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/grasspatch</uri>
+      <name>grasspatch_8</name>
+      <pose>-2.84275 12.2673 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/grasspatch</uri>
+      <name>grasspatch_9</name>
+      <pose>12.0974 12.324 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/grasspatch</uri>
+      <name>grasspatch_10</name>
+      <pose>19.6557 12.3852 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/grasspatch</uri>
+      <name>grasspatch_11</name>
+      <pose>34.4104 12.3418 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/grasspatch</uri>
+      <name>grasspatch_12</name>
+      <pose>42.0586 12.0965 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Nurse</uri>
+      <name>Nurse</name>
+      <pose>30.554 10.1984 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Oak tree</uri>
+      <name>Oak tree</name>
+      <pose>40.3514 17.1373 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Oak tree</uri>
+      <name>Oak tree_0</name>
+      <pose>43.5137 10.9503 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Oak tree</uri>
+      <name>Oak tree_1</name>
+      <pose>33.4681 19.6923 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Oak tree</uri>
+      <name>Oak tree_2</name>
+      <pose>-37.117 18.1479 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Oak tree</uri>
+      <name>Oak tree_3</name>
+      <pose>5.63326 14.9021 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Pine Tree</uri>
+      <name>Pine Tree</name>
+      <pose>-39.1135 9.0649 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Pine Tree</uri>
+      <name>Pine Tree_0</name>
+      <pose>-39.1279 6.31735 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Pine Tree</uri>
+      <name>Pine Tree_1</name>
+      <pose>-38.8555 3.23362 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Pine Tree</uri>
+      <name>Pine Tree_2</name>
+      <pose>-38.8927 0.578055 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Pine Tree</uri>
+      <name>Pine Tree_3</name>
+      <pose>-38.2961 -9.46999 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Pine Tree</uri>
+      <name>Pine Tree_4</name>
+      <pose>-38.3862 -6.38093 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Pine Tree</uri>
+      <name>Pine Tree_5</name>
+      <pose>-38.3456 -3.12154 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Fire truck</uri>
+      <name>fire_truck</name>
+      <pose>31.9981 -1.57645 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/PatientWheelChair</uri>
+      <name>PatientWheelChair</name>
+      <pose>32.2336 9.80477 0 0 0 -2.4327</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Fire truck</uri>
+      <name>fire_truck_0</name>
+      <pose>35.0363 1.0682 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Fire truck</uri>
+      <name>fire_truck_1</name>
+      <pose>64.3837 1.8927 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/.ignition/fuel/fuel.gazebosim.org/chapulina/models/ambulance/2</uri>
+      <name>ambulance</name>
+      <pose>39.1832 -6.43234 0 0 0 -2.12615</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/.ignition/fuel/fuel.gazebosim.org/chapulina/models/ambulance/2</uri>
+      <name>ambulance_0</name>
+      <pose>38.825 1.17297 0 0 0 -2.27282</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/TrolleyBedPatient</uri>
+      <name>TrolleyBedPatient</name>
+      <pose>32.1773 -0.380035 0 0 -0 -3.10389</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/ground_station</uri>
+      <name>ground_station</name>
+      <pose>32.3676 6.83962 0 0 -0 0</pose>
+    </include>
+
+    <model name='BaseStation_1'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision_tent'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/devan/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/base station/9/meshes/tent.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='collision_antenna'>
+          <pose>0 2 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/devan/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/base station/9/meshes/antenna.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='visual_tent'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/devan/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/base station/9/meshes/tent.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='visual_antenna'>
+          <pose>0 2 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/devan/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/base station/9/meshes/antenna.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>32.3979 3.15307 0 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+
+    <model name='BaseStation_1_1'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision_tent'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/devan/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/base station/9/meshes/tent.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='collision_antenna'>
+          <pose>0 2 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/devan/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/base station/9/meshes/antenna.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='visual_tent'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/devan/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/base station/9/meshes/tent.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='visual_antenna'>
+          <pose>0 2 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/devan/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/base station/9/meshes/antenna.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>32.3708 -0.523646 0 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Cardboard box</uri>
+      <name>cardboard_box</name>
+      <pose>32.1634 0.684259 0.15 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Cardboard box</uri>
+      <name>cardboard_box_0</name>
+      <pose>30.8828 0.123481 0.15 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/BPCart</uri>
+      <name>BPCart</name>
+      <pose>32.3407 0.541032 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Rescue Randy</uri>
+      <name>rescue_randy</name>
+      <pose>30.2976 1.85578 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Rescue Randy Sitting</uri>
+      <name>rescue_randy_sitting</name>
+      <pose>40.0619 -1.99484 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Pickup</uri>
+      <name>pickup</name>
+      <pose>-31.393 -6.47565 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/TruckBox</uri>
+      <name>TruckBox</name>
+      <pose>39.6728 7.11647 0 0 -0 3.13006</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Walking person</uri>
+      <name>person_walking</name>
+      <pose>37.0017 -1.05915 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Casual female</uri>
+      <name>casual_female</name>
+      <pose>34.3247 7.48616 0 0 0 -0.868515</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/opscrubs/3</uri>
+      <name>OpScrubs</name>
+      <pose>31.4272 0.508539 0 0 0 -0.793198</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Nurse</uri>
+      <name>Nurse_1</name>
+      <pose>32.327 -1.32596 0 0 -0 1.53411</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Rescue Randy Sitting</uri>
+      <name>rescue_randy_sitting_0</name>
+      <pose>-1.08779 -0.237642 5.1894 0 0 -1.77713</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Fire truck</uri>
+      <name>fire_truck_2</name>
+      <pose>29.0104 -4.89263 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Fire truck</uri>
+      <name>fire_truck_3</name>
+      <pose>55.2906 1.61719 0 0 -0 0</pose>
+    </include>
+
+    <model name='Lamp Post_3'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/lamp post/3/files/meshes/lamp_post.dae</uri>
+              <scale>3 3 3</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/lamp post/3/files/meshes/lamp_post.dae</uri>
+              <scale>3 3 3</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>31.0627 12.7239 0 0 0 -0.248586</pose>
+      <self_collide>false</self_collide>
+    </model>
+
+    <model name='Lamp Post_4'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/lamp post/3/files/meshes/lamp_post.dae</uri>
+              <scale>3 3 3</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/lamp post/3/files/meshes/lamp_post.dae</uri>
+              <scale>3 3 3</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>30.6838 -4.60068 0 0 0 -2.82502</pose>
+      <self_collide>false</self_collide>
+    </model>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Rescue Randy Sitting</uri>
+      <name>rescue_randy_sitting_1</name>
+      <pose>32.4704 3.30455 0 0 0 -1.0511</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Rescue Randy Sitting</uri>
+      <name>rescue_randy_sitting_2</name>
+      <pose>33.0421 2.32371 0 0 0 -1.78751</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Rescue Randy Sitting</uri>
+      <name>rescue_randy_sitting_3</name>
+      <pose>31.0796 3.687 0 0 -0 0.475894</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Cardboard box</uri>
+      <name>cardboard_box_1</name>
+      <pose>32.9539 -4.06164 0.15 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/devan/ROS2/velatrix_ws/src/velatrix_simulation/models/Walking person</uri>
+      <name>person_walking_0</name>
+      <pose>-1308.09 -2547.77 0 0 -0 0</pose>
+    </include>
+
+    <light name='sun' type='directional'>
+      <pose>0 0 10 0 -0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>-0.5 0.1 -0.9</direction>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <linear>0.01</linear>
+        <constant>0.90000000000000002</constant>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+
+    <light name='spotlight' type='spot'>
+      <pose>-218.351 -87.6813 2 0 -0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>0 0 -1</direction>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>0.5 0.5 0.5 1</specular>
+      <attenuation>
+        <range>4</range>
+        <linear>0.5</linear>
+        <constant>0.20000000000000001</constant>
+        <quadratic>0.01</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0.10000000000000001</inner_angle>
+        <outer_angle>0.5</outer_angle>
+        <falloff>0.80000000000000004</falloff>
+      </spot>
+    </light>
+    <light name='spotlight_0' type='spot'>
+      <pose>411.131 40.8612 2 0 -0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>0 0 -1</direction>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>0.5 0.5 0.5 1</specular>
+      <attenuation>
+        <range>4</range>
+        <linear>0.5</linear>
+        <constant>0.20000000000000001</constant>
+        <quadratic>0.01</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0.10000000000000001</inner_angle>
+        <outer_angle>0.5</outer_angle>
+        <falloff>0.80000000000000004</falloff>
+      </spot>
+    </light>
+    <light name='spotlight_1' type='spot'>
+      <pose>1.29246 82.6528 2 0 -0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>0 0 -1</direction>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>0.5 0.5 0.5 1</specular>
+      <attenuation>
+        <range>4</range>
+        <linear>0.5</linear>
+        <constant>0.20000000000000001</constant>
+        <quadratic>0.01</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0.10000000000000001</inner_angle>
+        <outer_angle>0.5</outer_angle>
+        <falloff>0.80000000000000004</falloff>
+      </spot>
+    </light>
+    <light name='pointlight' type='point'>
+      <pose>-38.2676 -4.20201 2 0 -0 0</pose>
+      <cast_shadows>false</cast_shadows>
+      <intensity>1</intensity>
+      <direction>0 0 -1</direction>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>0.5 0.5 0.5 1</specular>
+      <attenuation>
+        <range>4</range>
+        <linear>0.5</linear>
+        <constant>0.20000000000000001</constant>
+        <quadratic>0.01</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+    <light name='pointlight_0' type='point'>
+      <pose>-19.736 -4.30997 2 0 -0 0</pose>
+      <cast_shadows>false</cast_shadows>
+      <intensity>1</intensity>
+      <direction>0 0 -1</direction>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>0.5 0.5 0.5 1</specular>
+      <attenuation>
+        <range>4</range>
+        <linear>0.5</linear>
+        <constant>0.20000000000000001</constant>
+        <quadratic>0.01</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+    <light name='pointlight_1' type='point'>
+      <pose>12.799 -10.3643 2 0 -0 0</pose>
+      <cast_shadows>false</cast_shadows>
+      <intensity>1</intensity>
+      <direction>0 0 -1</direction>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>0.5 0.5 0.5 1</specular>
+      <attenuation>
+        <range>4</range>
+        <linear>0.5</linear>
+        <constant>0.20000000000000001</constant>
+        <quadratic>0.01</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+    <light name='pointlight_2' type='point'>
+      <pose>28.3789 8.2345 2 0 -0 0</pose>
+      <cast_shadows>false</cast_shadows>
+      <intensity>1</intensity>
+      <direction>0 0 -1</direction>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>0.5 0.5 0.5 1</specular>
+      <attenuation>
+        <range>4</range>
+        <linear>0.5</linear>
+        <constant>0.20000000000000001</constant>
+        <quadratic>0.01</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+    <light name='pointlight_3' type='point'>
+      <pose>28.5882 -1.84754 2 0 -0 0</pose>
+      <cast_shadows>false</cast_shadows>
+      <intensity>1</intensity>
+      <direction>0 0 -1</direction>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>0.5 0.5 0.5 1</specular>
+      <attenuation>
+        <range>4</range>
+        <linear>0.5</linear>
+        <constant>0.20000000000000001</constant>
+        <quadratic>0.01</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+    <light name='pointlight_4' type='point'>
+      <pose>-19.7339 -4.34773 2 0 -0 0</pose>
+      <cast_shadows>false</cast_shadows>
+      <intensity>1</intensity>
+      <direction>0 0 -1</direction>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>0.5 0.5 0.5 1</specular>
+      <attenuation>
+        <range>4</range>
+        <linear>0.5</linear>
+        <constant>0.20000000000000001</constant>
+        <quadratic>0.01</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+    
+  </world>
+</sdf>

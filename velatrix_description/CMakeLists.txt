@@ -22,7 +22,8 @@ if(BUILD_TESTING)
 endif()
 
 install (
-  DIRECTORY 
+  DIRECTORY
+    config 
     launch 
     meshes
     urdf

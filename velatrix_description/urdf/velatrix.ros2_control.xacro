@@ -1,8 +1,350 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="velatrix">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <!-- Include the main URDF file -->
-  <xacro:include filename="$(find velatrix_description)/urdf/velatrix.urdf.xacro"/>
+  <xacro:macro name="velatrix_ros2_control" params="
+    name
+    use_fake_hardware:=false 
+    fake_sensor_commands:=false
+    sim_gazebo:=false
+    sim_ignition:=true
+    initial_positions_file
+    joint_limits_file
+    ">
 
-  <!-- Enable ROS2 Control -->
-  <xacro:velatrix_ros2_control/>
+    <!-- Load configuration files -->
+    <xacro:property name="initial_positions_config" value="${xacro.load_yaml(initial_positions_file)}"/>
+    <xacro:property name="joint_limits_config" value="${xacro.load_yaml(joint_limits_file)}"/>
+    
+    <!-- Extract sections -->
+    <xacro:property name="initial_positions" value="${initial_positions_config}"/>
+    <xacro:property name="joint_limits" value="${joint_limits_config['joint_limits']}"/>
+
+    <ros2_control name="${name}" type="system">
+      <hardware>
+        <xacro:if value="${sim_gazebo}">
+          <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        </xacro:if>
+
+        <xacro:if value="${sim_ignition}">
+          <plugin>ign_ros2_control/IgnitionSystem</plugin>
+        </xacro:if>
+
+        <xacro:if value="${use_fake_hardware}">
+          <plugin>mock_components/GenericSystem</plugin>
+          <param name="fake_sensor_commands">${fake_sensor_commands}</param>
+          <param name="state_following_offset">0.0</param>
+        </xacro:if>
+        
+        <xacro:unless value="${use_fake_hardware or sim_gazebo or sim_ignition}">
+          <!-- Replace with your actual hardware plugin -->
+          <!-- Example for Dynamixel: -->
+          <!-- <plugin>dynamixel_hardware/DynamixelHardware</plugin> -->
+          <!-- <param name="usb_port">/dev/ttyUSB0</param> -->
+          <!-- <param name="baud_rate">1000000</param> -->
+          
+          <!-- Placeholder for your custom hardware interface -->
+          <plugin>velatrix_hardware/VelatrixHardwareInterface</plugin>
+          <param name="serial_port">/dev/ttyUSB0</param>
+          <param name="baud_rate">1000000</param>
+        </xacro:unless>
+      </hardware>
+
+      <!-- ========== LEG 1 JOINTS ========== -->
+      <joint name="c1_jt">
+        <command_interface name="position">
+          <param name="min">${joint_limits['c1_jt']['min_position']}</param>
+          <param name="max">${joint_limits['c1_jt']['max_position']}</param>
+        </command_interface>
+        <command_interface name="velocity">
+          <param name="min">${-joint_limits['c1_jt']['max_velocity']}</param>
+          <param name="max">${joint_limits['c1_jt']['max_velocity']}</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['c1_jt']}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="f1_jt">
+        <command_interface name="position">
+          <param name="min">${joint_limits['f1_jt']['min_position']}</param>
+          <param name="max">${joint_limits['f1_jt']['max_position']}</param>
+        </command_interface>
+        <command_interface name="velocity">
+          <param name="min">${-joint_limits['f1_jt']['max_velocity']}</param>
+          <param name="max">${joint_limits['f1_jt']['max_velocity']}</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['f1_jt']}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="t1_jt">
+        <command_interface name="position">
+          <param name="min">${joint_limits['t1_jt']['min_position']}</param>
+          <param name="max">${joint_limits['t1_jt']['max_position']}</param>
+        </command_interface>
+        <command_interface name="velocity">
+          <param name="min">${-joint_limits['t1_jt']['max_velocity']}</param>
+          <param name="max">${joint_limits['t1_jt']['max_velocity']}</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['t1_jt']}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <!-- ========== LEG 2 JOINTS ========== -->
+      <joint name="c2_jt">
+        <command_interface name="position">
+          <param name="min">${joint_limits['c2_jt']['min_position']}</param>
+          <param name="max">${joint_limits['c2_jt']['max_position']}</param>
+        </command_interface>
+        <command_interface name="velocity">
+          <param name="min">${-joint_limits['c2_jt']['max_velocity']}</param>
+          <param name="max">${joint_limits['c2_jt']['max_velocity']}</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['c2_jt']}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="f2_jt">
+        <command_interface name="position">
+          <param name="min">${joint_limits['f2_jt']['min_position']}</param>
+          <param name="max">${joint_limits['f2_jt']['max_position']}</param>
+        </command_interface>
+        <command_interface name="velocity">
+          <param name="min">${-joint_limits['f2_jt']['max_velocity']}</param>
+          <param name="max">${joint_limits['f2_jt']['max_velocity']}</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['f2_jt']}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="t2_jt">
+        <command_interface name="position">
+          <param name="min">${joint_limits['t2_jt']['min_position']}</param>
+          <param name="max">${joint_limits['t2_jt']['max_position']}</param>
+        </command_interface>
+        <command_interface name="velocity">
+          <param name="min">${-joint_limits['t2_jt']['max_velocity']}</param>
+          <param name="max">${joint_limits['t2_jt']['max_velocity']}</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['t2_jt']}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <!-- ========== LEG 3 JOINTS ========== -->
+      <joint name="c3_jt">
+        <command_interface name="position">
+          <param name="min">${joint_limits['c3_jt']['min_position']}</param>
+          <param name="max">${joint_limits['c3_jt']['max_position']}</param>
+        </command_interface>
+        <command_interface name="velocity">
+          <param name="min">${-joint_limits['c3_jt']['max_velocity']}</param>
+          <param name="max">${joint_limits['c3_jt']['max_velocity']}</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['c3_jt']}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="f3_jt">
+        <command_interface name="position">
+          <param name="min">${joint_limits['f3_jt']['min_position']}</param>
+          <param name="max">${joint_limits['f3_jt']['max_position']}</param>
+        </command_interface>
+        <command_interface name="velocity">
+          <param name="min">${-joint_limits['f3_jt']['max_velocity']}</param>
+          <param name="max">${joint_limits['f3_jt']['max_velocity']}</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['f3_jt']}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="t3_jt">
+        <command_interface name="position">
+          <param name="min">${joint_limits['t3_jt']['min_position']}</param>
+          <param name="max">${joint_limits['t3_jt']['max_position']}</param>
+        </command_interface>
+        <command_interface name="velocity">
+          <param name="min">${-joint_limits['t3_jt']['max_velocity']}</param>
+          <param name="max">${joint_limits['t3_jt']['max_velocity']}</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['t3_jt']}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <!-- ========== LEG 4 JOINTS ========== -->
+      <joint name="c4_jt">
+        <command_interface name="position">
+          <param name="min">${joint_limits['c4_jt']['min_position']}</param>
+          <param name="max">${joint_limits['c4_jt']['max_position']}</param>
+        </command_interface>
+        <command_interface name="velocity">
+          <param name="min">${-joint_limits['c4_jt']['max_velocity']}</param>
+          <param name="max">${joint_limits['c4_jt']['max_velocity']}</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['c4_jt']}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="f4_jt">
+        <command_interface name="position">
+          <param name="min">${joint_limits['f4_jt']['min_position']}</param>
+          <param name="max">${joint_limits['f4_jt']['max_position']}</param>
+        </command_interface>
+        <command_interface name="velocity">
+          <param name="min">${-joint_limits['f4_jt']['max_velocity']}</param>
+          <param name="max">${joint_limits['f4_jt']['max_velocity']}</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['f4_jt']}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="t4_jt">
+        <command_interface name="position">
+          <param name="min">${joint_limits['t4_jt']['min_position']}</param>
+          <param name="max">${joint_limits['t4_jt']['max_position']}</param>
+        </command_interface>
+        <command_interface name="velocity">
+          <param name="min">${-joint_limits['t4_jt']['max_velocity']}</param>
+          <param name="max">${joint_limits['t4_jt']['max_velocity']}</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['t4_jt']}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <!-- ========== LEG 5 JOINTS ========== -->
+      <joint name="c5_jt">
+        <command_interface name="position">
+          <param name="min">${joint_limits['c5_jt']['min_position']}</param>
+          <param name="max">${joint_limits['c5_jt']['max_position']}</param>
+        </command_interface>
+        <command_interface name="velocity">
+          <param name="min">${-joint_limits['c5_jt']['max_velocity']}</param>
+          <param name="max">${joint_limits['c5_jt']['max_velocity']}</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['c5_jt']}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="f5_jt">
+        <command_interface name="position">
+          <param name="min">${joint_limits['f5_jt']['min_position']}</param>
+          <param name="max">${joint_limits['f5_jt']['max_position']}</param>
+        </command_interface>
+        <command_interface name="velocity">
+          <param name="min">${-joint_limits['f5_jt']['max_velocity']}</param>
+          <param name="max">${joint_limits['f5_jt']['max_velocity']}</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['f5_jt']}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="t5_jt">
+        <command_interface name="position">
+          <param name="min">${joint_limits['t5_jt']['min_position']}</param>
+          <param name="max">${joint_limits['t5_jt']['max_position']}</param>
+        </command_interface>
+        <command_interface name="velocity">
+          <param name="min">${-joint_limits['t5_jt']['max_velocity']}</param>
+          <param name="max">${joint_limits['t5_jt']['max_velocity']}</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['t5_jt']}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <!-- ========== LEG 6 JOINTS ========== -->
+      <joint name="c6_jt">
+        <command_interface name="position">
+          <param name="min">${joint_limits['c6_jt']['min_position']}</param>
+          <param name="max">${joint_limits['c6_jt']['max_position']}</param>
+        </command_interface>
+        <command_interface name="velocity">
+          <param name="min">${-joint_limits['c6_jt']['max_velocity']}</param>
+          <param name="max">${joint_limits['c6_jt']['max_velocity']}</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['c6_jt']}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="f6_jt">
+        <command_interface name="position">
+          <param name="min">${joint_limits['f6_jt']['min_position']}</param>
+          <param name="max">${joint_limits['f6_jt']['max_position']}</param>
+        </command_interface>
+        <command_interface name="velocity">
+          <param name="min">${-joint_limits['f6_jt']['max_velocity']}</param>
+          <param name="max">${joint_limits['f6_jt']['max_velocity']}</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['f6_jt']}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="t6_jt">
+        <command_interface name="position">
+          <param name="min">${joint_limits['t6_jt']['min_position']}</param>
+          <param name="max">${joint_limits['t6_jt']['max_position']}</param>
+        </command_interface>
+        <command_interface name="velocity">
+          <param name="min">${-joint_limits['t6_jt']['max_velocity']}</param>
+          <param name="max">${joint_limits['t6_jt']['max_velocity']}</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['t6_jt']}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+    </ros2_control>
+
+  </xacro:macro>
+
+</robot>

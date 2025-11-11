@@ -14,7 +14,6 @@ from launch import LaunchDescription
 from launch.actions import (
     DeclareLaunchArgument,
     IncludeLaunchDescription,
-    AppendEnvironmentVariable,
 )
 from launch.substitutions import LaunchConfiguration, PythonExpression
 from launch.launch_description_sources import PythonLaunchDescriptionSource
@@ -53,15 +52,6 @@ def generate_launch_description():
 
 
     return LaunchDescription([
-        # # Set resource paths for Gazebo
-        # AppendEnvironmentVariable(
-        #     name="IGN_GAZEBO_RESOURCE_PATH",
-        #     value=join(velatrix_simulation, "worlds")
-        # ),
-        # AppendEnvironmentVariable(
-        #     name="IGN_GAZEBO_RESOURCE_PATH",
-        #     value=join(velatrix_simulation, "models")
-        # ),
         # Declare launch arguments
         DeclareLaunchArgument("world_file", default_value=world_file),
         

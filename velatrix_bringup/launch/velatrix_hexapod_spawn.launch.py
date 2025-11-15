@@ -85,7 +85,7 @@ def generate_launch_description():
     
     # Robot State Publisher Node
     robot_state_publisher_node = TimerAction(
-        period=5.0,
+        period=3.0,
         actions=[
             Node(
                 package='robot_state_publisher',
@@ -99,9 +99,26 @@ def generate_launch_description():
         ]
     )
     
+    # ROS-Gazebo Bridge Node
+    bridge = TimerAction(
+        period=5.0,
+        actions=[
+            Node(
+                package="ros_gz_bridge",
+                executable="parameter_bridge",
+                name="velatrix_bridge",
+                arguments=[
+                    "/clock@rosgraph_msgs/msg/Clock[ignition.msgs.Clock",
+                ],
+                output="screen",
+                parameters=[{"use_sim_time": use_sim_time}],
+            )
+        ]
+    )
+    
     # Spawn Entity (Robot in Gazebo)
     spawn_entity = TimerAction(
-        period=8.0,
+        period=6.0,
         actions=[
             Node(
                 package="ros_gz_sim",
@@ -109,9 +126,10 @@ def generate_launch_description():
                 arguments=[
                     '-topic', 'robot_description',
                     '-entity', 'velatrix',
-                    '-x', '0.0',
-                    '-y', '0.0',
-                    '-z', '0.1'  # Spawn slightly above ground
+                    '-x', '29.0',
+                    '-y', '8.0',
+                    '-z', '0.1',  # Spawn slightly above ground
+                    '-Y', '3.14',
                 ],
                 output='screen'
             )
@@ -120,26 +138,36 @@ def generate_launch_description():
     
     # Joint State Broadcaster Spawner
     joint_state_broadcaster_spawner = TimerAction(
-        period=10.0,
+        period=8.0,
         actions=[
             Node(
                 package='controller_manager',
                 executable='spawner',
                 arguments=['joint_state_broadcaster', '--controller-manager', '/controller_manager'],
-                output='screen'
+                output='screen',
+                parameters=[
+                    robot_description,
+                    controllers_file,
+                    {'use_sim_time': use_sim_time}
+                ]
             )
         ]
     )
     
     # Position Controller Spawner
-    position_controller_spawner = TimerAction(
+    joint_trajectory_controller_spawner = TimerAction(
         period=12.0,
         actions=[
             Node(
                 package='controller_manager',
                 executable='spawner',
-                arguments=['forward_position_controller', '--controller-manager', '/controller_manager'],
-                output='screen'
+                arguments=['joint_trajectory_controller', '--controller-manager', '/controller_manager'],
+                output='screen',
+                parameters=[
+                    robot_description,
+                    controllers_file,
+                    {'use_sim_time': use_sim_time}
+                ]
             )   
         ]
     )
@@ -151,7 +179,8 @@ def generate_launch_description():
         declare_sim_gazebo,
         declare_sim_ignition,
         robot_state_publisher_node,
+        bridge,
         spawn_entity,
         joint_state_broadcaster_spawner,
-        position_controller_spawner,
+        joint_trajectory_controller_spawner,
     ])

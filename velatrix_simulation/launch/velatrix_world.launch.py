@@ -38,17 +38,17 @@ def generate_launch_description():
         }.items(),
     )
 
-    bridge = Node(
-        package='ros_gz_bridge',
-        executable='parameter_bridge',
-        name='velatrix_bridge',
-        parameters=[{
-            'config_file': os.path.join(velatrix_simulation, 'config', 'bridge.yaml'),
-            'qos_overrides./tf_static.publisher.durability': 'transient_local',
-            'use_sim_time': True
-        }],
-        output='screen'
-    )
+    # bridge = Node(
+    #     package='ros_gz_bridge',
+    #     executable='parameter_bridge',
+    #     name='velatrix_bridge',
+    #     parameters=[{
+    #         'config_file': os.path.join(velatrix_simulation, 'config', 'bridge.yaml'),
+    #         # 'qos_overrides./tf_static.publisher.durability': 'transient_local',
+    #         'use_sim_time': True
+    #     }],
+    #     output='screen'
+    # )
 
 
     return LaunchDescription([
@@ -57,5 +57,5 @@ def generate_launch_description():
         
         # Launch Gazebo
         gz_sim,
-        bridge
+        # bridge
     ])

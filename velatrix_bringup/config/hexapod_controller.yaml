@@ -25,22 +25,22 @@ joint_trajectory_controller:
   ros__parameters:
     joints:
       - c1_jt
-      - f1_jt
-      - t1_jt
       - c2_jt
-      - f2_jt
-      - t2_jt
       - c3_jt
-      - f3_jt
-      - t3_jt
       - c4_jt
-      - f4_jt
-      - t4_jt
       - c5_jt
-      - f5_jt
-      - t5_jt
       - c6_jt
+      - f1_jt
+      - f2_jt
+      - f3_jt
+      - f4_jt
+      - f5_jt
       - f6_jt
+      - t1_jt
+      - t2_jt
+      - t3_jt
+      - t4_jt
+      - t5_jt
       - t6_jt
 
     command_interfaces:
@@ -49,51 +49,50 @@ joint_trajectory_controller:
       - position
     state_publish_rate: 100.0
     action_monitor_rate: 20.0
-    allow_partial_joints_goal: false
+    allow_partial_joints_goal: true
     constraints:
       stopped_velocity_tolerance: 0.2
       goal_time: 0.0
       c1_jt: { trajectory: 0.2, goal: 0.1 }
-      f1_jt: { trajectory: 0.2, goal: 0.1 }
-      t1_jt: { trajectory: 0.2, goal: 0.1 }
       c2_jt: { trajectory: 0.2, goal: 0.1 }
-      f2_jt: { trajectory: 0.2, goal: 0.1 }
-      t2_jt: { trajectory: 0.2, goal: 0.1 }
       c3_jt: { trajectory: 0.2, goal: 0.1 }
-      f3_jt: { trajectory: 0.2, goal: 0.1 }
-      t3_jt: { trajectory: 0.2, goal: 0.1 }
       c4_jt: { trajectory: 0.2, goal: 0.1 }
-      f4_jt: { trajectory: 0.2, goal: 0.1 }
-      t4_jt: { trajectory: 0.2, goal: 0.1 }
       c5_jt: { trajectory: 0.2, goal: 0.1 }
-      f5_jt: { trajectory: 0.2, goal: 0.1 }
-      t5_jt: { trajectory: 0.2, goal: 0.1 }
       c6_jt: { trajectory: 0.2, goal: 0.1 }
+      f1_jt: { trajectory: 0.2, goal: 0.1 }
+      f2_jt: { trajectory: 0.2, goal: 0.1 }
+      f3_jt: { trajectory: 0.2, goal: 0.1 }
+      f4_jt: { trajectory: 0.2, goal: 0.1 }
+      f5_jt: { trajectory: 0.2, goal: 0.1 }
       f6_jt: { trajectory: 0.2, goal: 0.1 }
+      t1_jt: { trajectory: 0.2, goal: 0.1 }
+      t2_jt: { trajectory: 0.2, goal: 0.1 }
+      t3_jt: { trajectory: 0.2, goal: 0.1 }
+      t4_jt: { trajectory: 0.2, goal: 0.1 }
+      t5_jt: { trajectory: 0.2, goal: 0.1 }
       t6_jt: { trajectory: 0.2, goal: 0.1 }
 
 scaled_joint_trajectory_controller:
   ros__parameters:
     joints:
       - c1_jt
-      - f1_jt
-      - t1_jt
       - c2_jt
-      - f2_jt
-      - t2_jt
       - c3_jt
-      - f3_jt
-      - t3_jt
       - c4_jt
-      - f4_jt
-      - t4_jt
       - c5_jt
-      - f5_jt
-      - t5_jt
       - c6_jt
+      - f1_jt
+      - f2_jt
+      - f3_jt
+      - f4_jt
+      - f5_jt
       - f6_jt
+      - t1_jt
+      - t2_jt
+      - t3_jt
+      - t4_jt
+      - t5_jt
       - t6_jt
-
     command_interfaces:
       - position
     state_interfaces:
@@ -101,49 +100,49 @@ scaled_joint_trajectory_controller:
     speed_scaling_interface_name: ""
     state_publish_rate: 100.0
     action_monitor_rate: 20.0
-    allow_partial_joints_goal: false
+    allow_partial_joints_goal: true
     constraints:
       stopped_velocity_tolerance: 0.2
       goal_time: 0.0
       c1_jt: { trajectory: 0.2, goal: 0.1 }
-      f1_jt: { trajectory: 0.2, goal: 0.1 }
-      t1_jt: { trajectory: 0.2, goal: 0.1 }
       c2_jt: { trajectory: 0.2, goal: 0.1 }
-      f2_jt: { trajectory: 0.2, goal: 0.1 }
-      t2_jt: { trajectory: 0.2, goal: 0.1 }
       c3_jt: { trajectory: 0.2, goal: 0.1 }
-      f3_jt: { trajectory: 0.2, goal: 0.1 }
-      t3_jt: { trajectory: 0.2, goal: 0.1 }
       c4_jt: { trajectory: 0.2, goal: 0.1 }
-      f4_jt: { trajectory: 0.2, goal: 0.1 }
-      t4_jt: { trajectory: 0.2, goal: 0.1 }
       c5_jt: { trajectory: 0.2, goal: 0.1 }
-      f5_jt: { trajectory: 0.2, goal: 0.1 }
-      t5_jt: { trajectory: 0.2, goal: 0.1 }
       c6_jt: { trajectory: 0.2, goal: 0.1 }
+      f1_jt: { trajectory: 0.2, goal: 0.1 }
+      f2_jt: { trajectory: 0.2, goal: 0.1 }
+      f3_jt: { trajectory: 0.2, goal: 0.1 }
+      f4_jt: { trajectory: 0.2, goal: 0.1 }
+      f5_jt: { trajectory: 0.2, goal: 0.1 }
       f6_jt: { trajectory: 0.2, goal: 0.1 }
+      t1_jt: { trajectory: 0.2, goal: 0.1 }
+      t2_jt: { trajectory: 0.2, goal: 0.1 }
+      t3_jt: { trajectory: 0.2, goal: 0.1 }
+      t4_jt: { trajectory: 0.2, goal: 0.1 }
+      t5_jt: { trajectory: 0.2, goal: 0.1 }
       t6_jt: { trajectory: 0.2, goal: 0.1 }
 
 forward_position_controller:
   ros__parameters:
     joints:
       - c1_jt
-      - f1_jt
-      - t1_jt
       - c2_jt
-      - f2_jt
-      - t2_jt
       - c3_jt
-      - f3_jt
-      - t3_jt
       - c4_jt
-      - f4_jt
-      - t4_jt
       - c5_jt
-      - f5_jt
-      - t5_jt
       - c6_jt
+      - f1_jt
+      - f2_jt
+      - f3_jt
+      - f4_jt
+      - f5_jt
       - f6_jt
+      - t1_jt
+      - t2_jt
+      - t3_jt
+      - t4_jt
+      - t5_jt
       - t6_jt
 
     interface_name: position

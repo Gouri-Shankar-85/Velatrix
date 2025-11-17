@@ -9,6 +9,7 @@
     sim_ignition:=true
     initial_positions_file
     joint_limits_file
+    simulation_controllers
     ">
 
     <!-- Load configuration files -->

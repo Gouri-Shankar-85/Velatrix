@@ -31,12 +31,14 @@
         sim_ignition="$(arg sim_ignition)"
         initial_positions_file="$(arg initial_positions_file)"
         joint_limits_file="$(arg joint_limits_file)"
+        simulation_controllers="$(arg simulation_controllers)"
     />
 
     <xacro:if value="$(arg sim_gazebo)">
         <gazebo>
             <plugin filename="libign_ros2_control-system.so" name="ign_ros2_control::IgnitionROS2ControlPlugin">
-                <parameters>$(find velatrix_bringup)/config/hexapod_controller.yaml</parameters>
+                <parameters>$(arg simulation_controllers)</parameters>
+                <controller_manager_node_name>controller_manager</controller_manager_node_name>
             </plugin>
         </gazebo>
     </xacro:if>
@@ -44,7 +46,8 @@
     <xacro:if value="$(arg sim_ignition)">
         <gazebo>
         <plugin filename="libign_ros2_control-system.so" name="ign_ros2_control::IgnitionROS2ControlPlugin">
-            <parameters>$(find velatrix_bringup)/config/hexapod_controller.yaml</parameters>
+            <parameters>$(arg simulation_controllers)</parameters>
+            <controller_manager_node_name>controller_manager</controller_manager_node_name>
         </plugin>
         </gazebo>
     </xacro:if>

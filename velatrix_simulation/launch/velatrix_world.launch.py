@@ -25,7 +25,7 @@ def generate_launch_description():
     
     world_file = LaunchConfiguration(
         "world_file", 
-        default=join(velatrix_simulation, "worlds", "disaster_area.sdf")
+        default=join(velatrix_simulation, "worlds", "empty.sdf")
     )
 
     gz_sim_share = get_package_share_directory("ros_gz_sim")

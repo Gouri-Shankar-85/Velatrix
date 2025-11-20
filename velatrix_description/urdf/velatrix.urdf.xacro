@@ -24,31 +24,27 @@
 
     <!-- ========== ROS2_CONTROL CONFIGURATION ========== -->
     <xacro:velatrix_ros2_control 
-        name="VelatrixSystem"
         use_fake_hardware="$(arg use_fake_hardware)"
         fake_sensor_commands="$(arg fake_sensor_commands)"
         sim_gazebo="$(arg sim_gazebo)"
         sim_ignition="$(arg sim_ignition)"
         initial_positions_file="$(arg initial_positions_file)"
         joint_limits_file="$(arg joint_limits_file)"
-        simulation_controllers="$(arg simulation_controllers)"
     />
 
     <xacro:if value="$(arg sim_gazebo)">
         <gazebo>
-            <plugin filename="libign_ros2_control-system.so" name="ign_ros2_control::IgnitionROS2ControlPlugin">
-                <parameters>$(arg simulation_controllers)</parameters>
-                <controller_manager_node_name>controller_manager</controller_manager_node_name>
+            <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+                <parameters>$(find velatrix_bringup)/config/hexapod_controller.yaml</parameters>
             </plugin>
         </gazebo>
     </xacro:if>
 
     <xacro:if value="$(arg sim_ignition)">
         <gazebo>
-        <plugin filename="libign_ros2_control-system.so" name="ign_ros2_control::IgnitionROS2ControlPlugin">
-            <parameters>$(arg simulation_controllers)</parameters>
-            <controller_manager_node_name>controller_manager</controller_manager_node_name>
-        </plugin>
+            <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+                <parameters>$(find velatrix_bringup)/config/hexapod_controller.yaml</parameters>
+            </plugin>
         </gazebo>
     </xacro:if>
 

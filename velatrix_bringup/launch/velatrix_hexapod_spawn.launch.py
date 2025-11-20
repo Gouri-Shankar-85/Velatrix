@@ -20,6 +20,7 @@ from launch.substitutions import (
     PathJoinSubstitution,
 )
 from launch_ros.actions import Node
+from launch_ros.parameter_descriptions import ParameterValue
 from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
@@ -72,49 +73,30 @@ def generate_launch_description():
     )
     
     # Process URDF
-    robot_description_content = Command([
-        ' xacro ', urdf_file,
-        ' use_fake_hardware:=', use_fake_hardware,
-        ' fake_sensor_commands:=', fake_sensor_commands,
-        ' sim_gazebo:=', sim_gazebo,
-        ' sim_ignition:=', sim_ignition,
-        ' initial_positions_file:=', initial_positions_file,
-        ' joint_limits_file:=', joint_limits_file,
-        ' simulation_controllers:=', PathJoinSubstitution([pkg_velatrix_bringup, "config", "hexapod_controller.yaml"]),
-    ])
-    
+    robot_description_content = ParameterValue(
+        Command([
+            'xacro ', urdf_file,
+            ' use_fake_hardware:=', use_fake_hardware,
+            ' fake_sensor_commands:=', fake_sensor_commands,
+            ' sim_gazebo:=', sim_gazebo,
+            ' sim_ignition:=', sim_ignition,
+            ' initial_positions_file:=', initial_positions_file,
+            ' joint_limits_file:=', joint_limits_file,
+        ]),
+        value_type=str
+    )
     robot_description = {'robot_description': robot_description_content}
     
     # Robot State Publisher Node
-    robot_state_publisher_node = TimerAction(
-        period=3.0,
-        actions=[
-            Node(
-                package='robot_state_publisher',
-                executable='robot_state_publisher',
-                output='screen',
-                parameters=[
-                    robot_description,
-                    {'use_sim_time': use_sim_time}
-                ]
-            )
+    robot_state_publisher_node = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        output='screen',
+        parameters=[
+            robot_description,
+            {'use_sim_time': use_sim_time}
         ]
     )
-    
-    # joint_state_publisher_node = TimerAction(
-    #     period=4.0,
-    #     actions=[
-    #         Node(
-    #             package='joint_state_publisher',
-    #             executable='joint_state_publisher',
-    #             output='screen',
-    #             parameters=[
-    #                 robot_description,
-    #                 {'use_sim_time': use_sim_time}
-    #             ]
-    #         )
-    #     ]
-    # )
     
     # ROS-Gazebo Bridge Node
     bridge = TimerAction(
@@ -143,10 +125,10 @@ def generate_launch_description():
                 arguments=[
                     '-topic', 'robot_description',
                     '-entity', 'velatrix',
-                    '-x', '29.0',
-                    '-y', '8.0',
-                    '-z', '0.1',  # Spawn slightly above ground
-                    '-Y', '3.14',
+                    '-x', '0.0',
+                    '-y', '0.0',
+                    '-z', '0.0',  # Spawn slightly above ground
+                    '-Y', '0.0',
                 ],
                 output='screen'
             )
@@ -160,7 +142,11 @@ def generate_launch_description():
             Node(
                 package='controller_manager',
                 executable='spawner',
-                arguments=['joint_state_broadcaster', '--controller-manager', '/controller_manager'],
+                arguments=[
+                    'joint_state_broadcaster',
+                    '--controller-manager', '/controller_manager',
+                    # '--param-file', PathJoinSubstitution([pkg_velatrix_bringup, "config", "hexapod_controller.yaml"])
+                ],
                 output='screen',
                 parameters=[
                     {'use_sim_time': use_sim_time}
@@ -168,15 +154,19 @@ def generate_launch_description():
             )
         ]
     )
-    
-    # Position Controller Spawner
+
+    # Position Controller Spawner  
     joint_trajectory_controller_spawner = TimerAction(
         period=12.0,
         actions=[
             Node(
                 package='controller_manager',
                 executable='spawner',
-                arguments=['joint_trajectory_controller', '--controller-manager', '/controller_manager'],
+                arguments=[
+                    'joint_trajectory_controller',
+                    '--controller-manager', '/controller_manager',
+                    # '--param-file', PathJoinSubstitution([pkg_velatrix_bringup, "config", "hexapod_controller.yaml"])
+                ],
                 output='screen',
                 parameters=[
                     {'use_sim_time': use_sim_time}
@@ -184,7 +174,6 @@ def generate_launch_description():
             )   
         ]
     )
-    
     return LaunchDescription([
         declare_use_sim_time,
         declare_use_fake_hardware,
@@ -192,7 +181,6 @@ def generate_launch_description():
         declare_sim_gazebo,
         declare_sim_ignition,
         robot_state_publisher_node,
-        # joint_state_publisher_node,
         bridge,
         spawn_entity,
         joint_state_broadcaster_spawner,

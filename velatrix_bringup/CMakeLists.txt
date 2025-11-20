@@ -8,7 +8,7 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(velatrix_description REQUIRED)
+# find_package(velatrix_description REQUIRED)
 find_package(controller_manager REQUIRED)
 
 if(BUILD_TESTING)

@@ -19,4 +19,32 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
+# ******************************************
+# Hexapod Config Library
+# ******************************************
+
+add_library(hexapod_config INTERFACE)
+
+target_include_directories(hexapod_config INTERFACE
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>
+)
+
+# Expor the library
+ament_export_targets(hexapod_config)
+ament_export_dependencies()
+
+# Install the include folder
+install(
+  DIRECTORY include/
+  DESTINATION include
+)
+
+# Install library target
+install(
+  TARGETS hexapod_config
+  EXPORT hexapod_config
+  DESTINATION lib
+)
+
 ament_package()

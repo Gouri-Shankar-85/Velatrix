@@ -83,6 +83,10 @@ namespace hexapod_kinematics {
             LegMountPoint(-0.038726, 0.060651, 0.05285, 2.1693),            
         }};
 
+        static constexpr const LegMountPoint& getLegMount(int leg_id) {
+            return LEG_MOUNTS[leg_id];
+        }
+
     private:
         LegMountConfig() = delete; 
 

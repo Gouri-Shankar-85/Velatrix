@@ -5,80 +5,72 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-# find dependencies
+# Find dependencies
+
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(rclpy REQUIRED)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
-
   set(ament_cmake_copyright_FOUND TRUE)
-
   set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-# ******************************************
-# Hexapod Config Library
-# ******************************************
+# -----------------------------
+# Helper function to add a library
+# -----------------------------
+function(add_hexapod_library lib_name src_file deps)
+  add_library(${lib_name} src/${src_file})
+  target_include_directories(${lib_name} PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+  )
+  if(deps)
+    target_link_libraries(${lib_name} ${deps})
+  endif()
+  ament_export_targets(${lib_name})
+  ament_export_dependencies(rclcpp)
+  install(
+    DIRECTORY include/
+    DESTINATION include
+  )
+  install(
+    TARGETS ${lib_name}
+    EXPORT ${lib_name}
+    DESTINATION lib
+  )
+endfunction()
 
+# -----------------------------
+# Hexapod libraries
+# -----------------------------
+
+# 1. hexapod_config (header-only)
 add_library(hexapod_config INTERFACE)
-
 target_include_directories(hexapod_config INTERFACE
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>
 )
-
-# Expor the library
 ament_export_targets(hexapod_config)
-ament_export_dependencies()
-
-# Install the include folder
+ament_export_dependencies(rclcpp)
 install(
   DIRECTORY include/
   DESTINATION include
 )
-
-# Install library target
 install(
   TARGETS hexapod_config
   EXPORT hexapod_config
   DESTINATION lib
 )
 
-# ******************************************
-# Hexapod IK Library
-# ******************************************
+# 2. hexapod_body 
+add_hexapod_library(hexapod_body hexapod_body.cpp hexapod_config)
 
-add_library(hexapod_ik
-  src/hexapod_ik.cpp
-)
+# 3. hexapod_ik
+add_hexapod_library(hexapod_ik hexapod_ik.cpp "hexapod_config;hexapod_body")
 
-target_include_directories(hexapod_ik PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>
-)
-
-target_link_libraries(hexapod_ik
-  hexapod_config   
-)
-
-# Export targets for ament
-ament_export_targets(hexapod_ik)
-ament_export_dependencies(rclcpp)  
-
-# Install headers
-install(
-  DIRECTORY include/
-  DESTINATION include
-)
-
-# Install library target
-install(
-  TARGETS hexapod_ik
-  EXPORT hexapod_ik
-  DESTINATION lib
-)
+# 4. hexapod_fk
+add_hexapod_library(hexapod_fk hexapod_fk.cpp "hexapod_config;hexapod_body")
 
 ament_package()

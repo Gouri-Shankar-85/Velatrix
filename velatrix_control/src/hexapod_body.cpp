@@ -1,8 +1,8 @@
-/******************************************************************************
+/*********************************************************************************************************
 *  Filename:           hexapod_body.cpp
 *  Description:        Define the transformations functions for the hexapod body frame and leg frames.
 *  Author:             Gouri Shankar
-******************************************************************************/
+*********************************************************************************************************/
 
 #include "hexapod_kinematics/hexapod_body.hpp"
 #include <cmath>
@@ -11,7 +11,7 @@ namespace hexapod_kinematics {
 
     HexapodBody::HexapodBody() {
         // Constructor implementation 
-    }
+    };
 
     Eigen::Vector3d HexapodBody::transformBodyToLeg(int leg_id, const Eigen::Vector3d& point_in_body) {
 
@@ -34,7 +34,7 @@ namespace hexapod_kinematics {
         point_in_leg.z() = translated.z();
 
         return point_in_leg;
-    }
+    };
 
     Eigen::Vector3d HexapodBody::transformLegToBody(int leg_id, const Eigen::Vector3d& point_in_leg) {
 
@@ -57,5 +57,6 @@ namespace hexapod_kinematics {
         point_in_body.z() = translated.z();
 
         return point_in_body;
+    };
         
 }

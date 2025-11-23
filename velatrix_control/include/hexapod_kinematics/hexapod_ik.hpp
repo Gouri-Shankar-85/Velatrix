@@ -6,8 +6,8 @@
 
 #pragma once
 
+#include <eigen3/Eigen/Dense>
 #include "hexapod_kinematics/hexapod_config.hpp"
-#include "hexapod_kinematics/hexapod_body.hpp"
 
 namespace hexapod_kinematics {
 

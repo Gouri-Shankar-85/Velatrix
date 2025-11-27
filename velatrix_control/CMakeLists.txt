@@ -73,4 +73,7 @@ add_hexapod_library(hexapod_ik hexapod_ik.cpp "hexapod_config;hexapod_body")
 # 4. hexapod_fk
 add_hexapod_library(hexapod_fk hexapod_fk.cpp "hexapod_config;hexapod_body")
 
+#5. hexapod_gait
+add_hexapod_library(hexapod_gait hexapod_gait.cpp "hexapod_config;hexapod_body")
+
 ament_package()
